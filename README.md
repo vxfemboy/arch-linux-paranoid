@@ -334,6 +334,10 @@ swapon -a
 FIRST:
 ```
 dmesg | grep -i secure
+
+exit
+umount -a
+reboot 
 ```
 
 Enroll the keys in this order:
