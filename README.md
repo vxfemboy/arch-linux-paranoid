@@ -300,7 +300,7 @@ chmod +x mkkeys.sh
 
 boot from kernel:
 ```
-efibootmgr -c -d /dev/sdX -p 1 --label "BunnyArch" -l "BOOT\Arch\linux-hardened-signed.efi" --verbose
+efibootmgr -c -d /dev/sdX -p 1 --label "Arch" -l "BOOT\Arch\linux-hardened-signed.efi" --verbose
 ```
 check if valid boot: 
 ```efibootmgr```   
