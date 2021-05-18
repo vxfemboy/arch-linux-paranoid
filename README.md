@@ -273,7 +273,7 @@ makepkg -si
 cd ..
 rm -rf yay
 yay --sudoloop --save
-yay -S sbupdate-git sbkeys
+yay -S sbupdate-git sbkeys rkhunter chrootkit clamav
 exit
 ```
 
@@ -310,7 +310,7 @@ with the corresponding boot numbers of your list.
 
 # Install 
 ```
-pacman -S openssh networkmanager wpa_supplicant wireless_tools dialog openvpn networkmanager-openvpn networkmanager-vpnc network-manager-applet dhclient libsecret nm-connection-editor modemmanager usb_modeswitch rp-ppoe networkmanager-openconnect networkmanager-pptp networkmanager-l2tp iptables usbguard firejail apparmor htop bpytop dnscrypt-proxy syncthing pulseeffects lsp-plugins jre11-openjdk ntfs-3g ldns gvfs-mtp gocryptfs compsize whois openbsd-netcat net-tools ttf-dejavu ttf-liberation ttf-droid ttf-ubuntu-font-family noto-fonts noto-fonts-emoji pulseaudio alsa-utils alsa-plugins
+pacman -S openssh networkmanager wpa_supplicant wireless_tools dialog openvpn networkmanager-openvpn networkmanager-vpnc network-manager-applet dhclient libsecret nm-connection-editor modemmanager usb_modeswitch rp-ppoe networkmanager-openconnect networkmanager-pptp networkmanager-l2tp iptables usbguard firejail apparmor htop bpytop dnscrypt-proxy syncthing pulseeffects lsp-plugins jre11-openjdk ntfs-3g ldns gvfs-mtp gocryptfs compsize whois openbsd-netcat net-tools ttf-dejavu ttf-liberation ttf-droid ttf-ubuntu-font-family noto-fonts noto-fonts-emoji pulseaudio alsa-utils alsa-plugins xorg i3 cdm thunar terminator lsd
 ```
 ```systemctl enable NetworkManager apparmor```
 
