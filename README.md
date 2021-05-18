@@ -180,6 +180,7 @@ Change your timezone:
 timedatectl set-timezone Region/City
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
 hwclock --systohc
+timedatectl set-ntp true
 systemctl enable systemd-timesyncd
 ```
 
