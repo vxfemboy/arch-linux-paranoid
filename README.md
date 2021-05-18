@@ -279,7 +279,7 @@ exit
 
 ## Updating sbupdate.conf
 ```
-sed -i 's/#CMDLINE_DEFAULT=""/CMDLINE_DEFAULT="cryptdevice=UUID='"$(blkid -s UUID -o value /dev/sdX2)"':$(DRIVE) root=\/dev\/\/root rootflags=subvol=@ rw loglevel=3 rd.udev.log_priority=3 rd.systemd.show_status=false systemd.show_status=false quiet splash apparmor=1 lsm=lockdown,yama,apparmor i915.fastboot=1"/g' /etc/sbupdate.conf
+sed -i 's/#CMDLINE_DEFAULT=""/CMDLINE_DEFAULT="cryptdevice=UUID='"$(blkid -s UUID -o value /dev/sdX2)"':$(DRIVE) root=\/dev\/($DRIVE)\/root rw loglevel=3 rd.udev.log_priority=3 rd.systemd.show_status=false systemd.show_status=false quiet splash apparmor=1 lsm=lockdown,yama,apparmor i915.fastboot=1"/g' /etc/sbupdate.conf
 ```
 NOTE: Remove the i915.fastboot=1 option if you are not using an integrated GPU of an Intel CPU.
 ```
@@ -296,13 +296,7 @@ chmod +x mkkeys.sh
 ```
 
 ## setup secure boot
-```
-sbsign --key /etc/efi-keys/DB.key --cert /etc/efi-keys/DB.crt --output /efi/BOOT/Arch/linux-hardened-signed.efi /efi/BOOT/Arch/linux-hardened-signed.efi
-```
-Sign kernel:
-```
-sbsign --key /etc/efi-keys/DB.key --cert /etc/efi-keys/DB.crt --output /efi/BOOT/Arch/linux-hardened-signed.efi /efi/BOOT/Arch/linux-hardened-signed.efi
-```
+
 boot from kernel:
 ```
 efibootmgr -c -d /dev/sdX -p 1 --label "BunnyArch" -l "BOOT\Arch\linux-hardened-signed.efi" --verbose
@@ -328,6 +322,14 @@ mkdir /etc/pacman.d/hooks
 wget -O /etc/pacman.d/hooks/firejail.hook https://raw.githubusercontent.com/theo546/my-arch-setup/master/firejail.hook
 ```
 
+## SWAP
+```
+dd if =/dev/zero of=/swapfile bs=1M count=64000 status=progress
+chmod 600 /swapfile
+mkswap /swapfile
+echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
+swapon -a
+```
 ## Reboot into bios
 FIRST:
 ```
