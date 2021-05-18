@@ -322,7 +322,7 @@ usbguard generate-policy > /etc/usbguard/rules.conf
 systemctl enable usbguard
 apparmor_parser -r /etc/apparmor.d/firejail-default
 mkdir /etc/pacman.d/hooks
-wget -O /etc/pacman.d/hooks/firejail.hook https://raw.githubusercontent.com/theo546/my-arch-setup/master/firejail.hook
+wget -O /etc/pacman.d/hooks/firejail.hook https://raw.githubusercontent.com/legitnull/arch-linux-paranoid/main/firejail.hook
 ```
 
 ## SWAP
