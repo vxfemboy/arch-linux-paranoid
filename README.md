@@ -185,14 +185,14 @@ systemctl enable systemd-timesyncd
 ```
 
 Type ```nano /etc/locale.gen``` and uncomment:
-````
+```
 en_us.UTF-8 UTF-8
 en_us ISO-8859-1
-````
+```
 ```locale-gen```
 ```
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
-````
+```
 NOTE: Feel Free to change the locales as nessacary 
 
 ### Hostname and Hosts
@@ -224,7 +224,7 @@ sed -i 's/#COMPRESSION="zstd"/COMPRESSION="zstd"/g' /etc/mkinitcpio.conf
 ## Add keylayout:
 ```
 echo "KEYMAP=en" > /etc/vconsole.conf
-````
+```
 
 ## Setup root and new user
 ```passwd```
@@ -311,9 +311,11 @@ with the corresponding boot numbers of your list.
 # Install 
 ```
 pacman -S openssh networkmanager wpa_supplicant wireless_tools dialog openvpn networkmanager-openvpn networkmanager-vpnc network-manager-applet dhclient libsecret nm-connection-editor modemmanager usb_modeswitch rp-ppoe networkmanager-openconnect networkmanager-pptp networkmanager-l2tp iptables usbguard firejail apparmor htop bpytop dnscrypt-proxy syncthing pulseeffects lsp-plugins jre11-openjdk ntfs-3g ldns gvfs-mtp gocryptfs compsize whois openbsd-netcat net-tools ttf-dejavu ttf-liberation ttf-droid ttf-ubuntu-font-family noto-fonts noto-fonts-emoji pulseaudio alsa-utils alsa-plugins xorg i3 cdm thunar terminator lsd firefox pam-u2f```
+
 ```systemctl enable NetworkManager apparmor```
 
 ## usbguard and firejail and apparmor
+
 ```
 usbguard generate-policy > /etc/usbguard/rules.conf
 systemctl enable usbguard
@@ -338,6 +340,7 @@ dmesg | grep -i secure
 exit
 umount -a
 reboot 
+```
 
 ### REMOVE ALL KEYS ON ESP PARTITION 
 ### SET BIOS PASSWORD!
