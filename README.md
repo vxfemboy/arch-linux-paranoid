@@ -338,39 +338,12 @@ dmesg | grep -i secure
 exit
 umount -a
 reboot 
-```
-
-Enroll the keys in this order:
-
-    db
-    KEK
-    PK
-
-Note: make sure to last enroll your platform key.
-Note2: always prefer the .auth certificates over the others certificate type.
-
-Once on the main menu, select Edit Keys then The Allowed Signatures Database (db).
-Now select Add New Key then select the drive and the db certificate on the file list.
-
-Note: if you are doing a dual boot with Windows or if you need the Microsoft Corporation UEFI CA 2011 certificate enrolled, add add_MS_db.auth as a db certificate.
-
-Repeat these steps for KEK.
-
-For the platform key, select Replace Key(s) then select your PK certificate just like earlier.
-
-Once done, press ESC to get back on the main menu, if you have done those steps properly, at the top of the screen, it should show Platform is in User Mode.
-To finally finish the setup, press Exit to reboot!
-
-From now on, only your new Arch setup (or any EFI executable signed with your keys) will be able to boot on this PC unless you disable Secure Boot.
-
 
 ### REMOVE ALL KEYS ON ESP PARTITION 
 ### SET BIOS PASSWORD!
 backup luks header
+
 ```
 cryptsetup luksHeaderBackup /dev/sdX2 --header-backup-file luks_header_backup
-
-
-
 ```
 
