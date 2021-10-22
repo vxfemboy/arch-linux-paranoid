@@ -1,5 +1,7 @@
-# INTO THE MATRIX
+# INTO THE MATRIX OF 101 how to do something... well i think
 
+### DO NOT FOLLOW THIS GUIDE IF YOU DONT UNDERSTAND HOW TO FIX MY STUFF, you will break something
+PS: i use artix
 ##  Verify
 Verify the Arch ISO you got from [here](https://archlinux.org/download/)
 using sha1sum:
@@ -345,4 +347,4 @@ reboot
 
 ### REMOVE ALL KEYS ON ESP PARTITION 
 ### SET BIOS PASSWORD!
-
+still with me? if yes fix your mistakes before doing. or you wont boot.
